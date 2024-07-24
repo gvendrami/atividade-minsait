@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  wordpress:
+    # usa o dockerfile no diretório atual para construir a imagem do wordpress.
+    build: . 
+    container_name: wordpress
+    ports: # mapeia a porta 80 para a porte 8080 do host. mudei mais por familiaridade em alguns casos também em alguns testes antigos.
+      - "8080:80"
+    # são as definições de ambiente para conectar ao banco de dados    
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: GAud4mZby8F3SD6P  
+    volumes: # mapeia um volume para a armezenação dos dados do wordpress.
+      - wordpress_data:/var/www/html
+    depends_on: # é a garantia de que o conteiner do wordpress só inicie depois do banco de dados estiver disponível. importante para nao dar erro no código.
+      - db
+
+  db:
+    # utiliza a imagem padrao do mysql versao 5.7.
+    image: mysql:5.7
+    container_name: db
+    # definição de variáveis de ambiente para a configuração do mysql.
+    environment:
+      MYSQL_ROOT_PASSWORD: GAud4mZby8F3SD6P
+      MYSQL_DATABASE: wordpress
+    # mapeia um volume para a armazenação dos dados do mysql.
+    volumes:
+      - db_data:/var/lib/mysql
+
+# definição dos volumes para a estabilidade dos dados.
+volumes:
+  wordpress_data:
+  db_data:
