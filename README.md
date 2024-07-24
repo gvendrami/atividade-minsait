@@ -22,7 +22,7 @@ Você também precisa de:
 1. **Clone o Repositório**
 
    ```bash
-   git clone [https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git](https://github.com/gvendrami/atividade-minsait.git)
+   git clone https://github.com/gvendrami/atividade-minsait.git
    cd SEU_REPOSITORIO
    ```
 
