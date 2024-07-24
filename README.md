@@ -22,8 +22,8 @@ Você também precisa de:
 1. **Clone o Repositório**
 
    ```bash
-   git clone https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git
-   cd SEU_REPOSITORIO 
+   git clone [https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git](https://github.com/gvendrami/atividade-minsait.git)
+   cd SEU_REPOSITORIO
    ```
 
 2. **Configure as Credenciais da Azure**
